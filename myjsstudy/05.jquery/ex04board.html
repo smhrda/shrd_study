@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery-3.6.0.js"></script> 
+</head>
+<body>
+    <button id='like'>좋아요</button><span>0</span>
+    <br>
+    <input type="text" name="comment"><button class='writeCom'>댓글작성</button>
+    <br>
+    <div id="com">
+        <p>첫댓글<button class='removeCom' id="remove">삭제</button></p>
+    </div>
+
+    <script>
+
+    let like = Number($('span').text())+1
+    $(document).on("click", "#like",function(){
+       $('span').html(like)
+       $('#like').html('좋아요 취소')
+       $('#like').addClass("dislike")
+    })
+
+    let dislike = like-1
+    $(document).on("click", ".dislike", function(){
+        $('span').html(dislike)
+        $('#like').html('좋아요')
+        $('#like').removeClass("dislike")
+    })
+
+    $(document).on("click", ".writeCom", function(){
+        let comment = $('input[name=comment]').val();
+        $('div').prepend('<button id=remove>삭제</button>'+"<br>")
+        $('div').prepend(comment)
+    })
+
+    $(document).on("click", "#remove", function(){
+        $().remove()
+    })
+    
+
+
+    </script>
+
+</body>
+</html>

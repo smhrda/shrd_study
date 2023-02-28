@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 임포트 -->
+    <script src="jquery-3.6.0.js"></script> 
+</head>
+<body>
+    <p>로그인 폼을 작성해봅시다</p>
+    <button id="btnP">p태그 다루기</button>
+    <div id="div1">
+        <h1 class="h">로그인폼</h1>
+        ID : <input type="text" name="id" value="sdf"><br>
+        PW : <input type="text" name="pw">
+    </div>
+    <p class="h"></p>
+    <button id="btnDiv">div태그 다루기</button>
+    <button id="btnH">h태그 다루기</button>
+    <button id="addAttr">id input 속성 추가</button>
+    <button id="getId_Pw">input태그 다루기</button>
+
+    <script>
+        //jquery문법으로 클릭 이벤트 만들기 - $('#아이디').click(함수(매개변수){로직})
+        $('#btnP').click(function(){
+            //jquery로 tag사이 글씨 가져오기
+            //자바스크립트 -> innerText, innerHTML
+            //=>   jquery -> text(), html()
+
+            //jquery tag 사이 요소 가지고오기(태그, 텍스트 포함)
+            let p = $('p').html()
+            alert(p)
+
+            //jquery tag 사이 요소 바꾸기(태그, 텍스트 포함)
+            // .html() - 아무것도 안적으면 가져오기, 사이에 값 있으면 그걸로 바꾸기
+            $('p').html('<i>p태그</i> 바꾸기')
+
+        })
+
+        $('#btnDiv').click(function(){
+            $('#div1').css('background-color', 'pink')
+        })
+
+        $('#btnH').click(function(){
+            let h = $('.h').text() //js의 innertext와 동일
+            alert(h)
+            $('.h').text('바꾸기')
+        })
+
+        $('#addAttr').click(function(){
+            //name이 id인 input태그만 가져오기
+            //속성 값 바꾸기(추가하기)
+            $('input[name=id]').attr('placeholder', 'ID작성')
+            //속성 값 가지고오기
+            alert($('input[name=id').attr('type'))
+            //속성 삭제하기
+            $('input[name=id]').removeAttr('class', 'c1') //클래스 중 실제 삭제하고 싶은 값 c1 삭제
+        })
+
+        $('#getId_Pw').click(function(){
+            //input태그에 작성된 값(value 속성) 가지고 오기
+            let id = $('input[name=id]').val();
+            let pw = $('input[name=pw]').val();
+
+            alert(id+" : "+pw)
+
+            //input태그에 작성된 값(value 속성) 수정하기
+            $('input[name=pw]').val('비밀번호!');
+
+        })
+
+    </script>
+</body>
+</html>

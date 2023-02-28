@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery-3.6.0.js"></script> 
+</head>
+<body>
+    <button id='like'>좋아요</button><span>0</span>
+    <br>
+    <input type="text"><button class='writeCom'>댓글작성</button>
+    <br>
+    <div id="com">
+        <p>첫댓글<button class='removeCom'>삭제</button></p>
+    </div>
+
+
+    <script>
+        //좋아요
+        $(document).on("click", "#like",function(){
+            //숫자(span) 1 증가
+            //text(), html() -> 문자열 -> 연산이 필요한 경우에는 형변환
+            let like = Number($('#like+span').text())
+            $('#like+span').text(like+1);
+            //버튼의 글씨 -> 좋아요 취소로 변경
+            $(this).text('좋아요 취소'); //이벤트를 발생시킨 자기 자신 요소는 this로 변경 가능(아마)
+            //아이디 - dislike 추가, like 삭제
+            $(this).attr('id', 'dislike')
+            $('#like').removeAttr('id', 'like')
+        })
+
+        //좋아요 취소
+        $(document).on("click", "#dislike", function(){
+            //숫자(span) 1 증가
+            //text(), html() -> 문자열 -> 연산이 필요한 경우에는 형변환
+            let like = Number($('#dislike+span').text())
+            $('#dislike+span').text(like-1);
+            //버튼의 글씨 -> 좋아요 취소로 변경
+            $(this).text('좋아요');
+            //아이디 - dislike 추가, like 삭제
+            $(this).attr('id', 'like')
+            $('#dislike').removeAttr('id', 'dislike')
+        })
+
+        //댓글 쓰기
+        $('.writeCom').click(function(){
+            let com = $('input[type=text]').val()
+            $("#com").prepend('<p>'+com+'<button class=\'removeCom\'>삭제</button></p>')
+            $('input[type=text]').val('') //댓글 작성 후 입력창 비우기
+        })
+
+        //댓글 삭제
+        $('#com').on("click", ".removeCom", function(){
+            $(this).parent().remove() //이벤트를 발생시킨 요소에만 적용됨
+        })
+    </script>
+</body>
+</html>

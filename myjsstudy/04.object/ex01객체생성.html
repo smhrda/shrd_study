@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //객체(Object) : 여러 개의 데이터를 속성 & 값으로 구분해서 저장
+
+        //객체 생성 Case1
+        // let pyo = {};
+        // pyo.name = "선영표";
+        // pyo.subject = 'web';
+        // pyo.loc = 'CGI';
+
+        // console.log(pyo);
+
+        //객체 생성 Case2
+        let pyo = {
+            name : '선영표',
+            subject : 'web',
+            location : 'CGI',
+            intro : function(){
+                alert("반갑습니다(✿◡‿◡)")
+            }
+        };
+
+        // 객체는 속성을 이용해서 접근한다
+        // 접근하는 방법 : 객체이름.속성이름 - .(마침표)를 이용
+        console.log(pyo.name);
+        pyo.intro(); //함수 접근
+    </script>
+</body>
+</html>

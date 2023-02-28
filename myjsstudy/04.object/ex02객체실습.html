@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+                let pyo = {
+            name : '선영표',
+            subject : 'web',
+            location : 'CGI',
+            intro : function(){
+                alert("반갑습니다(✿◡‿◡)")
+            }
+        };
+
+        let poc1 = {
+            name : '피카츄',
+            age : '2살',
+            skill : function(){
+                alert("⚡백만볼트!!⚡")
+            }
+        }
+        let poc2 = {
+            name: '꼬부기',
+            age : '1살',
+            skill : function(){
+                console.log("🌊물대포!!🌊")
+            }
+        }
+        
+        poc1.skill();
+
+        document.write("첫번째 포켓몬 이름 : "+poc1.name);
+        document.write("<br>")
+        document.write("첫번째 포켓몬 나이 : "+poc1.age)
+        document.write("<br>")
+        document.write("<br>")
+        document.write("두번째 포켓몬 이름 : "+poc2.name);
+        document.write("<br>")
+        document.write("두번째 포켓몬 나이 : "+poc2.age)
+
+        poc2.skill();
+
+    </script>
+</body>
+</html>

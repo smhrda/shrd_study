@@ -1,0 +1,36 @@
+@import url(ex03_myCss2.css);
+
+#layout{
+    width: 500px;
+    height: 500px;
+    color: white;
+    text-align: center;
+}
+#header{
+    height: 10%;
+    background-color: #ea4335;
+}
+#nav{
+    height: 10%;
+    background-color:#FF5E00;
+}
+#side{
+    width: 30%;
+    height: 60%;
+    background-color:#4285F4;
+    float: left;
+}
+#section1{
+    height: 30%;
+    background-color: #34A853;
+    text-align: left;
+}
+#section2{
+    height: 30%;
+    background-color: #FBBC05;
+    text-align: left;
+}
+#footer{
+    height: 20%;
+    background-color: #8A8D92;
+}
